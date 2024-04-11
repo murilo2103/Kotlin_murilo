@@ -16,8 +16,17 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonEntrar.setOnClickListener {
-                startActivity(Intent(this, MainActivity::class.java))
+            val username = binding.editUsername.text.toString().trim()
+            val password = binding.editPassword.text.toString().trim()
+
+            if (username.equals("abc") && password.equals("123")) {
+                val i = Intent(this, MainActivity::class.java)
+                i.putExtra("username", username)
+                startActivity(i)
                 finish()
+            } else {
+                Toast.makeText(applicationContext, "Errou", Toast.LENGTH_LONG).show()
+            }
         }
 
     }
