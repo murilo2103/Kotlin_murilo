@@ -13,6 +13,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val username = intent.extras?.getString("username")
+
+        if(!username.isNullOrEmpty()){
+            binding.textOla.setText("Olá $username")
+        }
+
         binding.buttonFechar.setOnClickListener {
             finishAffinity()
         }
