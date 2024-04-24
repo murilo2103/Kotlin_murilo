@@ -1,5 +1,6 @@
 package com.example.restaurante
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonFechar.setOnClickListener {
             finishAffinity()
+        }
+
+        binding.buttonPedir.setOnClickListener {
+            val i = Intent(this, SplashActivity::class.java)
+            i.putExtra("quantidadePizza", binding.editQuantidadePizza.toString())
+            i.putExtra("quantidadeSalada", binding.editQuantidadeSalada.toString())
+            i.putExtra("quantidadeHamburguer", binding.editQuantidadeHamburguer.toString())
+            startActivity(i)
+            finish()
         }
 
 

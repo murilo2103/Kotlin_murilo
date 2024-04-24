@@ -124,6 +124,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/buttonPedir"
+        android:text="Pedir"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/buttonFechar"
         android:text="Fechar"/>
 </LinearLayout>
