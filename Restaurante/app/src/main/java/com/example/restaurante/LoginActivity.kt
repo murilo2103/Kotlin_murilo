@@ -7,11 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.restaurante.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
-
+//Criação da variável binding que servirá para manipular a tela.
     private lateinit var binding:ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

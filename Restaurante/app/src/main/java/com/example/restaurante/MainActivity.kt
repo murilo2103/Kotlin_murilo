@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonPedir.setOnClickListener {
             val i = Intent(this, SplashActivity::class.java)
-            i.putExtra("quantidadePizza", binding.editQuantidadePizza.toString())
-            i.putExtra("quantidadeSalada", binding.editQuantidadeSalada.toString())
-            i.putExtra("quantidadeHamburguer", binding.editQuantidadeHamburguer.toString())
+            i.putExtra("quantidadePizza", binding.editQuantidadePizza.text.toString())
+            i.putExtra("quantidadeSalada", binding.editQuantidadeSalada.text.toString())
+            i.putExtra("quantidadeHamburguer", binding.editQuantidadeHamburguer.text.toString())
             startActivity(i)
             finish()
         }
