@@ -49,6 +49,15 @@ class MainActivity : AppCompatActivity() {
             binding.buttonSete.id -> tabuleiro[2][1] = jogadorAtual
             binding.buttonOito.id -> tabuleiro[2][2] = jogadorAtual
         }
+        //Recebe o jogador vencedor através da função verificaTabuleiro. @param tabuleito
+        var vencedor = verificaVencedor(tabuleiro)
+
+        if(!vencedor.isNullOrBlank()) {
+            Toast.makeText(this, "Vencedor: " + vencedor, Toast.LENGTH_LONG).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         if(jogadorAtual.equals("X")) {
             buttonSelecionado.setBackgroundColor(Color.BLUE)
@@ -60,4 +69,40 @@ class MainActivity : AppCompatActivity() {
         buttonSelecionado.isEnabled=false
     }
 
+    fun verificaVencedor(tabuleiro: Array<Array<String>>): String? {
+
+        // Verifica linhas e colunas
+        for (i in 0 until 3) {
+            //Verifica se há três itens iguais na linha
+            if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]) {
+                return tabuleiro[i][0]
+            }
+            //Verifica se há três itens iguais na coluna
+            if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i]) {
+                return tabuleiro[0][i]
+            }
+        }
+        // Verifica diagonais
+        if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
+            return tabuleiro[0][0]
+        }
+        if (tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]) {
+            return tabuleiro[0][2]
+        }
+        //Verifica a quantidade de jogadores 
+        var empate = 0
+        for (linha in tabuleiro) {
+            for (valor in linha) {
+                if(valor.equals("X")||valor.equals("O")){
+                    empate++
+                }
+            }
+        }
+        //Se existem 9 jogadas e não há três letras iguais, houve um empate
+        if(empate == 9){
+            return "Empate"
+        }
+        // Nenhum vencedor
+        return null
+    }
 }
