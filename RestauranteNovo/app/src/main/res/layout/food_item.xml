@@ -63,7 +63,7 @@
         android:textSize="12sp"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/red"
         android:text="Comprar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
